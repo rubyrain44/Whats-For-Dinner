@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/styles.css">
+    <title>Add A Dinner</title>
+</head>
+<body>
+
+<form action="/add" method="POST">
+    
+        <div class="addForm">
+            <label for="name">Name: </label>
+            <input type="text" name="name">
+        </div>
+        
+        <div class="addForm">
+            <div>
+                <label>Type: </label>
+                <input type="radio" name="type" value="Homemade">
+                <label for="type">Homemade</label>
+                
+                <input type="radio" name="type" value="Takeout">
+                <label for="type">Takeout</label>
+            </div>
+        </div>
+        
+        <!-- If Homemade is selected -->
+        <div class="addForm">            
+            <label>Difficulty: </label>
+
+            <input type="radio" name="difficulty" value="N/A">
+            <label for="difficulty">N/A</label>
+
+            <input type="radio" name="difficulty" value="Easy">
+            <label for="difficulty">Easy</label>
+            
+            <input type="radio" name="difficulty" value="Medium">
+            <label for="difficulty">Medium</label>
+            
+            <input type="radio" name="difficulty" value="Hard">
+            <label for="difficulty">Hard</label>
+    </div>
+
+    <!-- If Takeout is selected -->
+    <div class="addForm">
+        <label>Price: </label>
+        <input type="radio" name="price" value="Cheap">
+        <label for="price">Cheap</label>
+        
+        <input type="radio" name="price" value="Moderate">
+        <label for="price">Moderate</label>
+        
+        <input type="radio" name="price" value="Expensive">
+        <label for="price">Expensive</label>
+    </div>
+
+    <div class="addForm">
+        <label for="description">Description: </label>
+        <textarea id="description" name="description" rows="3" cols="40"></textarea>
+    </div>
+
+    <div class="addForm">
+        <label for="ingredients">Ingredients: </label>
+        <textarea id="ingredients" name="ingredients" rows="4" cols="50"></textarea>
+    </div>
+
+    <div class="addForm">
+        <label for="steps">Steps: </label>
+        <textarea id="steps" name="steps" rows="7" cols="50"></textarea>
+    </div>
+        
+    <div class="addForm">
+        <input type="submit" value="Add Dinner">
+    </div>
+
+</form>
+
+</body>
+</html>
