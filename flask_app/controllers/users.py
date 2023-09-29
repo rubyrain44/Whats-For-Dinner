@@ -13,6 +13,7 @@ def index():
 def register():
     if not User.validate_user(request.form):
         return redirect('/')
+    print('hello')
     pw_hash = bcrypt.generate_password_hash(request.form['register_password'])
     print(pw_hash)
     data = {

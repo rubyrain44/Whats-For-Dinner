@@ -10,17 +10,17 @@ class MySQLConnection:
                                     db = db,
                                     charset = 'utf8mb4',
                                     cursorclass = pymysql.cursors.DictCursor,
-                                    autocommit = True)
+                                    autocommit = False)
         # establish the connection to the database
         self.connection = connection
     # the method to query the database
-    def query_db(self, query, data=None):
+    def query_db(self, query:str, data:dict=None):
         with self.connection.cursor() as cursor:
             try:
                 query = cursor.mogrify(query, data)
                 print("Running Query:", query)
     
-                cursor.execute(query, data)
+                cursor.execute(query)
                 if query.lower().find("insert") >= 0:
                     # INSERT queries will return the ID NUMBER of the row inserted
                     self.connection.commit()

@@ -17,7 +17,9 @@ class User:
 
     @classmethod
     def create_user(cls, data):
+        print('A')
         query = "INSERT INTO users (username, email, password) VALUES (%(username)s, %(email)s, %(password)s);"
+        print('B')
         return connectToMySQL('wfd').query_db(query, data)
 
     @classmethod
