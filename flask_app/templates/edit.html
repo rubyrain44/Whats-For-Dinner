@@ -21,16 +21,16 @@
 
         <p>{{ session['user_id'] }}</p>
 
-<form action="/add" method="POST">
+<form action="/edit" method="POST">
     
         <input type="hidden" name="user_id" value="{{ session['user_id'] }}">
 
-        <div class="addForm">
+        <div class="editForm">
             <label for="name">Name: </label>
             <input type="text" name="name">
         </div>
         
-        <div class="addForm">
+        <div class="editForm">
             <div>
                 <label>Type: </label>
                 <input type="radio" name="type" value="Homemade">
@@ -42,7 +42,7 @@
         </div>
         
         <!-- If Homemade is selected -->
-        <div class="addForm">            
+        <div class="editForm">            
             <label>Difficulty: </label>
 
             <input type="radio" name="difficulty" value="N/A">
@@ -59,7 +59,7 @@
     </div>
 
     <!-- If Takeout is selected -->
-    <div class="addForm">
+    <div class="editForm">
         <label>Price: </label>
         <input type="radio" name="price" value="Cheap">
         <label for="price">Cheap</label>
@@ -71,28 +71,28 @@
         <label for="price">Expensive</label>
     </div>
 
-    <div class="addForm">
+    <div class="editForm">
         <label for="description">Description: </label>
         <textarea id="description" name="description" rows="3" cols="40"></textarea>
     </div>
 
-    <div class="addForm">
+    <div class="editForm">
         <label for="ingredients">Ingredients: </label>
         <textarea id="ingredients" name="ingredients" rows="4" cols="50"></textarea>
     </div>
 
-    <div class="addForm">
+    <div class="editForm">
         <label for="steps">Steps: </label>
         <textarea id="steps" name="steps" rows="7" cols="50"></textarea>
     </div>
         
-    <div class="addForm">
-        <input type="submit" value="Add Dinner">
+    <div class="editForm">
+        <input type="submit" value="Edit Dinner">
     </div>
 
 </form>
 
-    <a href="/dashboard">I don't know what to eat. What makes you think I know what to add?</a>
+    <a href="/dashboard">Never mind. It's perfect.</a>
 
 </body>
 </html>

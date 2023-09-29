@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{ dinner.name }}</h1>
+    <div>
+        <p>{{ dinner.id }}</p>
+        <p>Type: {{ dinner.type }}</p>
+        <p>Difficulty: {{ dinner.dificulty }}</p>
+        <p>Price: {{ dinner.price }}</p>
+        <p>Description: {{ dinner.description }}</p>
+        <p>Ingredients: {{ dinner.ingredients }}</p>
+        <p>Steps: {{ dinner.steps }}</p>
+        <p>Added By: {{ dinner.creator.username }}</p>
+        <p>Added On: {{ dinner.created_at }}</p>
+    </div>
+    
+    {% if session['user_id'] == dinner.user_id %}
+        <a href="/edit_dinner/{{ dinner.id }}">Edit Dinner</a>
+        <a href="/delete_dinner/{{ dinner.id }}">Delete Dinner</a>
+    {% endif %}
+
+    <a href="/dashboard">Head Back to the Dashboard</a>
+</body>
+</html>

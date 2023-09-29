@@ -49,9 +49,8 @@ class Dinner:
                 ON dinners.user_id = users.id
                 WHERE dinners.id = %(id)s;
                 """
-        results = connectToMySQL('recipes').query_db(query, data)
+        results = connectToMySQL('wfd').query_db(query, data)
         dinner = cls(results[0])
-        # we don't need to loop because it's only giving us one line of a result, so we can just use results[0]
         dinner_creator = {
                 'id': results[0]['users.id'],
                 'username': results[0]['username'],
@@ -61,7 +60,6 @@ class Dinner:
                 "updated_at": results[0]['users.updated_at']
             }
         dinner.creator = user.User(dinner_creator)
-        # referencing the recipe on line 64
         return dinner
 
     @classmethod
@@ -75,7 +73,7 @@ class Dinner:
     @classmethod
     def edit_dinner(cls, data):
         query = """
-                UPDATE recipes SET
+                UPDATE dinners SET
                 name=%(name)s, type=%(type)s, difficulty=%(difficulty)s, price=%(price)s, description=%(description)s, ingredients=%(ingredients)s, steps=%(steps)s, 
                 updated_at= NOW() WHERE id = %(id)s;
                 """
@@ -90,7 +88,7 @@ class Dinner:
 
 # ====================================================================
 
-# VALIDATIONS FOR RECIPE CREATION
+# VALIDATIONS FOR DINNER CREATION
     @staticmethod
     def validate_dinner(form_data):
         is_valid = True
