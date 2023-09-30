@@ -10,6 +10,66 @@ body {
     align-items: center;
 }
 
+/* INDEX CSS */
+
+.errors {
+    margin-bottom: 20px;
+}
+
+.indexContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.register, .login {
+    /* From https://css.glass */
+    background: rgba(69, 14, 121, 0.31);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.9px);
+    -webkit-backdrop-filter: blur(9.9px);
+    width: 500px;
+    height: 500px;
+    padding: 20px;
+    margin: 25px;
+}
+
+.registerH1 {
+    color: #430070;
+    text-shadow: 1px 1px white;
+    font-weight: bold;
+}
+
+.loginH1 {
+    color:#ff00aa;
+    text-shadow: 1px 1px white;
+    font-weight: bold;
+}
+
+.registerButton {
+    width: 100px;
+    height: 50px;
+    background-color: #430070;
+    border-color: white;
+    border-radius: 40px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.loginButton {
+    width: 100px;
+    height: 50px;
+    background-color: #ff00aa;
+    border-color: white;
+    border-radius: 40px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 /* SITE HEADER */
 .glitch-wrapper {
     width: 100%;
@@ -269,7 +329,7 @@ a:hover {
 
 /* FORM INPUT STYLES */
 
-input[type=text], textarea {
+input[type=text], input[type=password], textarea {
     border-radius: 30px;
     border: 1px white;
     padding: 10px;
@@ -312,4 +372,10 @@ input[type=radio] {
     font-size: 15px;
     font-weight: bold;
     margin-top: 10px;
+}
+
+.logout {
+    margin-top: 15px;
+    background-color: #120450;
+    color: white;
 }
