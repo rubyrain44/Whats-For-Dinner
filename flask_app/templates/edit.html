@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../static/css/styles.css">
-    <title>Add A Dinner</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200&display=swap" rel="stylesheet">
+    <title>Edit A Dinner</title>
 </head>
 <body>
+
+    <div class="navBar">
+        <div class="glitch-wrapper">
+            <div class="glitch" data-glitch="WHAT'S FOR DINNER?">WHAT'S FOR DINNER?</div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="bg-danger ">
@@ -18,81 +27,80 @@
                 {% endif %}
             {% endwith %}
         </div>
+    </div>
 
-        <p>{{ session['user_id'] }}</p>
+    <div class="content">
+        <form action="/edit" method="POST">
 
-<form action="/edit" method="POST">
-    
-        <input type="hidden" name="dinner_id" value="{{ dinner.id }}">
+            <input type="hidden" name="dinner_id" value="{{ dinner.id }}">
 
-        <div class="editForm">
-            <label for="name">Name: </label>
-            <input type="text" name="name">
-        </div>
-        
-        <div class="editForm">
-            <div>
-                <label>Type: </label>
-                <input type="radio" name="type" value="Homemade">
-                <label for="type">Homemade</label>
-                
-                <input type="radio" name="type" value="Takeout">
-                <label for="type">Takeout</label>
+            <div class="editForm">
+                <label class="labelStyle" for="name">Name: </label>
+                <input type="text" name="name">
             </div>
-        </div>
         
-        <!-- If Homemade is selected -->
-        <div class="editForm">            
-            <label>Difficulty: </label>
+            <div class="editForm">
+                <div>
+                    <label class="labelStyle">Type: </label>
+                    <input type="radio" name="type" value="Homemade">
+                    <label for="type">Homemade</label>
+                    
+                    <input type="radio" name="type" value="Takeout">
+                    <label for="type">Takeout</label>
+                </div>
+            </div>
+        
+            <!-- If Homemade is selected -->
+            <div class="editForm">            
+                <label class="labelStyle">Difficulty: </label>
+                
+                <input type="radio" name="difficulty" value="Easy">
+                <label for="difficulty">Easy</label>
+                
+                <input type="radio" name="difficulty" value="Medium">
+                <label for="difficulty">Medium</label>
+                
+                <input type="radio" name="difficulty" value="Hard">
+                <label for="difficulty">Hard</label>
+            </div>
 
-            <input type="radio" name="difficulty" value="N/A">
-            <label for="difficulty">N/A</label>
-
-            <input type="radio" name="difficulty" value="Easy">
-            <label for="difficulty">Easy</label>
+            <!-- If Takeout is selected -->
+            <div class="editForm">
+                <label class="labelStyle">Price: </label>
+                <input type="radio" name="price" value="Cheap">
+                <label for="price">Cheap</label>
+                
+                <input type="radio" name="price" value="Moderate">
+                <label for="price">Moderate</label>
+                
+                <input type="radio" name="price" value="Expensive">
+                <label for="price">Expensive</label>
+            </div>
+    
+            <div class="editForm">
+                <label class="labelStyle" for="description">Description: </label>
+                <textarea id="description" name="description" rows="3" cols="40"></textarea>
+            </div>
             
-            <input type="radio" name="difficulty" value="Medium">
-            <label for="difficulty">Medium</label>
+            <div class="editForm">
+                <label class="labelStyle" for="ingredients">Ingredients: </label>
+                <textarea id="ingredients" name="ingredients" rows="4" cols="50"></textarea>
+            </div>
             
-            <input type="radio" name="difficulty" value="Hard">
-            <label for="difficulty">Hard</label>
+            <div class="editForm">
+                <label class="labelStyle" for="steps">Steps: </label>
+                <textarea id="steps" name="steps" rows="7" cols="50"></textarea>
+            </div>
+                
+            <div class="editForm">
+                <input class ="editButton" type="submit" value="Edit Dinner">
+            </div>
+        </form>
     </div>
 
-    <!-- If Takeout is selected -->
-    <div class="editForm">
-        <label>Price: </label>
-        <input type="radio" name="price" value="Cheap">
-        <label for="price">Cheap</label>
-        
-        <input type="radio" name="price" value="Moderate">
-        <label for="price">Moderate</label>
-        
-        <input type="radio" name="price" value="Expensive">
-        <label for="price">Expensive</label>
+    <div class="goBack">
+        <a href="/dashboard">Never mind. It's perfect.</a>
     </div>
-
-    <div class="editForm">
-        <label for="description">Description: </label>
-        <textarea id="description" name="description" rows="3" cols="40"></textarea>
-    </div>
-
-    <div class="editForm">
-        <label for="ingredients">Ingredients: </label>
-        <textarea id="ingredients" name="ingredients" rows="4" cols="50"></textarea>
-    </div>
-
-    <div class="editForm">
-        <label for="steps">Steps: </label>
-        <textarea id="steps" name="steps" rows="7" cols="50"></textarea>
-    </div>
-        
-    <div class="editForm">
-        <input type="submit" value="Edit Dinner">
-    </div>
-
-</form>
-
-    <a href="/dashboard">Never mind. It's perfect.</a>
 
 </body>
 </html>

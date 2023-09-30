@@ -1,4 +1,315 @@
+/* BACKGROUND */
+
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    color: white;
+    background-image: url('../img/mesh-757.png');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SITE HEADER */
+.glitch-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(254, 254, 254, 0);
+    margin-top: 30px;
+    }
+    
+    .glitch {
+    position: relative;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+    letter-spacing: 8px;
+    z-index: 1;
+    margin-bottom: 85px;
+    }
+    
+    .glitch:before,
+    .glitch:after {
+    display: block;
+    content: attr(data-glitch);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    }
+    
+    .glitch:before {
+    animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: #9c00ff;
+    z-index: -1;
+    }
+    
+    .glitch:after {
+    animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+    color: #ff02ff;
+    z-index: -2;
+    }
+    
+    @keyframes glitch-color {
+    0% {
+        transform: translate(0);
+    }
+    
+    20% {
+        transform: translate(-5px, 5px);
+    }
+    
+    40% {
+        transform: translate(-5px, -5px);
+    }
+    
+    60% {
+        transform: translate(5px, 5px);
+    }
+    
+    80% {
+        transform: translate(5px, -5px);
+    }
+    
+    to {
+        transform: translate(0);
+    }
+    }
+
+
+/* =================================================================================================== */
+
+/* CONTENT */
+
+.content {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    /* glass div effects */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height:fit-content;
+    padding: 15px 25px 40px 25px;
+    margin: 10px;
+}
+
+h2, h3 {
+    color: white;
+    text-shadow: 2px 1px #120450;
+}
+
+h2 {
+    font-size: 40px;
+    margin-bottom: -15px;
+}
+
+h3 {
+    font-size: 25px;
+    margin-left: 150px;
+}
+
+img {
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+.welcomeLine {
+    display: flex;
+    align-items: baseline;
+}
+
+.whatsForDinnerLine {
+    display: flex;
+    align-items: center;
+    margin-top: -23px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 20px; */
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.addDinnerAction {
+    margin-top: 10px;
+}
+
 .addForm {
     display: flex;
     flex-direction: column;
+}
+
+/* DINNER BUTTON */
+
+button {
+    margin: 20px;
+}
+
+.custom-btn {
+    width: 300px;
+    height: 80px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    /* font-family: 'Lato', sans-serif; */
+    font-weight: 500;
+    font-size: 23px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+        box-shadow:inset 1px 1px 1px 0px white,
+        7px 7px 20px 0px rgba(0,0,0,.1),
+        4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+.btn-5 {
+    width: 300px;
+    height: 80px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    background: rgb(185, 7, 75);
+    background: linear-gradient(0deg, rgb(209, 38, 124) 2%, rgb(197, 12, 83) 40%, rgb(97, 25, 212) 100%);
+}
+
+.btn-5:hover {
+    color: #ffffff;
+    background: transparent;
+        box-shadow:none;
+}
+
+.btn-5:before, .btn-5:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: rgb(185, 7, 75);
+    box-shadow:
+        -1px -1px 5px 0px #fff,
+        7px 7px 20px 0px #0003,
+        4px 4px 5px 0px #0002;
+    transition:400ms ease all;
+}
+
+.btn-5:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+
+.btn-5:hover:before, .btn-5:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
+
+/* VIEW DINNER */
+
+.dinnerInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.dinnerDescription {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: -10px;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+p {
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.dinnerEditActions {
+    margin-top: 25px;
+}
+
+.editAction {
+    margin-right: 50px;
+}
+
+.goBack {
+    margin-top: 20px;
+}
+
+a:hover {
+    color: rgb(167, 26, 68);
+    text-shadow: 1px 1px white;
+}
+
+/* FORM INPUT STYLES */
+
+input[type=text], textarea {
+    border-radius: 30px;
+    border: 1px white;
+    padding: 10px;
+    margin: 5px;
+    color: rgb(167, 26, 68)
+}
+
+input[type=radio] {
+    accent-color:#ff0077;
+    margin: 5px;
+}
+
+.editForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+.addForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+.labelStyle {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.editButton, .addButton {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(167, 26, 68);
+    border-color: white;
+    border-radius: 40px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
 }

@@ -3,27 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200&display=swap" rel="stylesheet">
+    <title>Dinner Option</title>
 </head>
 <body>
-    <h1>{{ dinner.name }}</h1>
-    <div>
-        <p>{{ dinner.id }}</p>
-        <p>Type: {{ dinner.type }}</p>
-        <p>Difficulty: {{ dinner.dificulty }}</p>
-        <p>Price: {{ dinner.price }}</p>
-        <p>Description: {{ dinner.description }}</p>
-        <p>Ingredients: {{ dinner.ingredients }}</p>
-        <p>Steps: {{ dinner.steps }}</p>
-        <p>Added By: {{ dinner.creator.username }}</p>
-        <p>Added On: {{ dinner.created_at }}</p>
+
+    <div class="navBar">
+        <div class="glitch-wrapper">
+            <div class="glitch" data-glitch="WHAT'S FOR DINNER?">WHAT'S FOR DINNER?</div>
+        </div>
     </div>
     
-    {% if session['user_id'] == dinner.user_id %}
-        <a href="/edit_dinner/{{ dinner.id }}">Edit Dinner</a>
-        <a href="/delete_dinner/{{ dinner.id }}">Delete Dinner</a>
-    {% endif %}
-
-    <a href="/dashboard">Head Back to the Dashboard</a>
+    <div class="content">
+        <h1>{{ dinner.name }}</h1>
+        <div class="dinnerInfo">
+            <div class="dinnerDescription">
+                <p class="bold">Type: </p>
+                <p>{{ dinner.type }}</p>
+            </div>
+            <div class="dinnerDescription">
+                <p class="bold">Difficulty: </p>
+                <p>{{ dinner.dificulty }}</p>
+            </div>
+            <div class="dinnerDescription">
+                <p class="bold">Price: </p>
+                <p>{{ dinner.price }}</p>
+            </div>
+            <div class="dinnerDescription">
+                <p class="bold">Description: </p>
+                <p>{{ dinner.description }}</p>
+            </div>
+            <div class="dinnerDescription">
+                <p class="bold">Ingredients: </p>
+                <p>{{ dinner.ingredients }}</p>
+            </div>
+            <div class="dinnerDescription">
+                <p class="bold">Steps: </p>
+                <p>{{ dinner.steps }}</p>
+            </div>
+            <div class="dinnerDescription">
+                <p class="bold">Added By: </p>
+                <p>{{ dinner.creator.username }}</p>
+            </div>
+            <div class="dinnerDescription">
+                <p class="bold">Added On: </p>
+                <p>{{ dinner.created_at }}</p>
+            </div>
+        </div>
+        
+        <div class="dinnerEditActions">
+            {% if session['user_id'] == dinner.user_id %}
+            <a class="editAction" href="/edit_dinner/{{ dinner.id }}">Edit</a>
+            <a href="/delete_dinner/{{ dinner.id }}">Delete</a>
+            {% endif %}
+        </div>
+    </div>
+        
+    <a class="goBack" href="/dashboard">Head Back to the Dashboard</a>
 </body>
 </html>

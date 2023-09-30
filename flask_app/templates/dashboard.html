@@ -3,12 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>What's For Dinner?</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello {{ user.username }}</h1>
-    <h3>What are we going to eat today?</h3>
-    <a href="/add_dinner">Add A Dinner To The Roulette</button></a>
-    <a href="/get_dinner">Get Tonight's Dinner</a>
+    
+    <div class="navBar">
+        <div class="glitch-wrapper">
+            <div class="glitch" data-glitch="WHAT'S FOR DINNER?">WHAT'S FOR DINNER?</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="userHeader">
+            <div class="welcomeLine">
+                <img src="../static/img/handwave.png">
+                <h2>Welcome {{ user.username }}!</h2>
+                <!-- figure out how to welcome the user based on the time of day -->
+            </div>
+            <div class="whatsForDinnerLine">
+                <h3>What's for dinner tonight?</h3>
+                <img src="../static/img/fork&knife.png">
+            </div>
+        </div>
+        <div class="actions">
+            <div class="getDinnerAction">
+                <form action="/get_dinner" method="GET">
+                    <button class="custom-btn btn-5" action="/get_dinner"><span>CHOOSE FOR ME!</span></button>
+                </form>
+            </div>
+            <div class="addDinnerAction">
+                <a href="/add_dinner" class="addDinner">Add A Dinner To The Roulette</button></a>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

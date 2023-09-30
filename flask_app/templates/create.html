@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200&display=swap" rel="stylesheet">
     <title>Add A Dinner</title>
 </head>
 <body>
+
+    <div class="navBar">
+        <div class="glitch-wrapper">
+            <div class="glitch" data-glitch="WHAT'S FOR DINNER?">WHAT'S FOR DINNER?</div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="bg-danger ">
@@ -18,21 +27,21 @@
                 {% endif %}
             {% endwith %}
         </div>
+    </div>
 
-        <p>{{ session['user_id'] }}</p>
+    <div class="content">            
+        <form action="/add" method="POST">
 
-<form action="/add" method="POST">
-    
         <input type="hidden" name="user_id" value="{{ session['user_id'] }}">
 
         <div class="addForm">
-            <label for="name">Name: </label>
+            <label class="labelStyle" for="name">Name: </label>
             <input type="text" name="name">
         </div>
         
         <div class="addForm">
             <div>
-                <label>Type: </label>
+                <label class="labelStyle">Type: </label>
                 <input type="radio" name="type" value="Homemade">
                 <label for="type">Homemade</label>
                 
@@ -43,11 +52,8 @@
         
         <!-- If Homemade is selected -->
         <div class="addForm">            
-            <label>Difficulty: </label>
-
-            <input type="radio" name="difficulty" value="N/A">
-            <label for="difficulty">N/A</label>
-
+            <label class="labelStyle">Difficulty: </label>
+            
             <input type="radio" name="difficulty" value="Easy">
             <label for="difficulty">Easy</label>
             
@@ -56,43 +62,46 @@
             
             <input type="radio" name="difficulty" value="Hard">
             <label for="difficulty">Hard</label>
-    </div>
+        </div>
 
-    <!-- If Takeout is selected -->
-    <div class="addForm">
-        <label>Price: </label>
-        <input type="radio" name="price" value="Cheap">
-        <label for="price">Cheap</label>
+        <!-- If Takeout is selected -->
+        <div class="addForm">
+            <label class="labelStyle">Price: </label>
+            <input type="radio" name="price" value="Cheap">
+            <label for="price">Cheap</label>
+            
+            <input type="radio" name="price" value="Moderate">
+            <label for="price">Moderate</label>
+            
+            <input type="radio" name="price" value="Expensive">
+            <label for="price">Expensive</label>
+        </div>
+
+        <div class="addForm">
+            <label class="labelStyle" for="description">Description: </label>
+            <textarea id="description" name="description" rows="3" cols="40"></textarea>
+        </div>
         
-        <input type="radio" name="price" value="Moderate">
-        <label for="price">Moderate</label>
+        <div class="addForm">
+            <label class="labelStyle" for="ingredients">Ingredients: </label>
+            <textarea id="ingredients" name="ingredients" rows="4" cols="50"></textarea>
+        </div>
         
-        <input type="radio" name="price" value="Expensive">
-        <label for="price">Expensive</label>
-    </div>
-
-    <div class="addForm">
-        <label for="description">Description: </label>
-        <textarea id="description" name="description" rows="3" cols="40"></textarea>
-    </div>
-
-    <div class="addForm">
-        <label for="ingredients">Ingredients: </label>
-        <textarea id="ingredients" name="ingredients" rows="4" cols="50"></textarea>
-    </div>
-
-    <div class="addForm">
-        <label for="steps">Steps: </label>
-        <textarea id="steps" name="steps" rows="7" cols="50"></textarea>
-    </div>
+        <div class="addForm">
+            <label class="labelStyle" for="steps">Steps: </label>
+            <textarea id="steps" name="steps" rows="7" cols="50"></textarea>
+        </div>
         
-    <div class="addForm">
-        <input type="submit" value="Add Dinner">
+        <div class="addForm">
+            <input class="addButton" type="submit" value="Add Dinner">
+        </div>
+    
+        </form>
     </div>
 
-</form>
-
-    <a href="/dashboard">I don't know what to eat. What makes you think I know what to add?</a>
-
+    <div class="goBack">
+        <a href="/dashboard">I don't know what to eat. What makes you think I know what to add?</a>
+    </div>
+    
 </body>
 </html>

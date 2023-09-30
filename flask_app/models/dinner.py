@@ -91,11 +91,22 @@ class Dinner:
     def get_random_dinner(cls):
         query = """
                 SELECT * FROM dinners  
+                JOIN users
+                ON dinners.user_id = users.id
                 ORDER BY RAND ( )  
                 LIMIT 1
                 """
         results = connectToMySQL('wfd').query_db(query)
         dinner = cls(results[0])
+        dinner_creator = {
+                'id': results[0]['users.id'],
+                'username': results[0]['username'],
+                "email": results[0]['email'],
+                "password": results[0]['password'],
+                "created_at": results[0]['users.created_at'],
+                "updated_at": results[0]['users.updated_at']
+            }
+        dinner.creator = user.User(dinner_creator)
         return dinner
 
 # ====================================================================
