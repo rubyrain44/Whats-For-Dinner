@@ -4,6 +4,7 @@ from flask_app.models import user
 
 class Dinner:
     def __init__(self, data):
+        self.id = data['id']
         self.name = data['name']
         self.type = data['type']
         self.difficulty = data['difficulty']
@@ -85,6 +86,17 @@ class Dinner:
                 DELETE FROM dinners WHERE id = %(id)s;
                 """
         return connectToMySQL('wfd').query_db(query, data)
+    
+    @classmethod
+    def get_random_dinner(cls):
+        query = """
+                SELECT * FROM dinners  
+                ORDER BY RAND ( )  
+                LIMIT 1
+                """
+        results = connectToMySQL('wfd').query_db(query)
+        dinner = cls(results[0])
+        return dinner
 
 # ====================================================================
 
@@ -97,4 +109,6 @@ class Dinner:
             is_valid = False
         return is_valid
     
-# figure out a way to make sure radio is selected for validations
+# figure out a way to make sure radio is selected for 
+
+# why am I getting false when other things aren't selected? 
